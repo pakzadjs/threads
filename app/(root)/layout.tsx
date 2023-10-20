@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <body className={`${inter.className}`}>
           <Topbar />
-          <main>
+          <main className="flex flex-row">
             <LeftSidebar />
 
             <section className="main-container">
