@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { useUploadThing } from "@/lib/uploadthing";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { updateUser } from "@/lib/actions/user.actions";
 import { UserValidation } from "@/lib/validations/user";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -63,7 +64,20 @@ export default function AccountProfile({ user, btnTitle }: Props) {
       }
     }
 
-    // Update user profile
+    await updateUser({
+      userId: user.id,
+      username: values.username,
+      name: values.name,
+      bio: values.bio,
+      image: values.profile_photo,
+      path: pathname,
+    });
+
+    if (pathname === "/profile/edit") {
+      router.back();
+    } else {
+      router.push("/");
+    }
   };
 
   const handleImage = (
@@ -142,7 +156,11 @@ export default function AccountProfile({ user, btnTitle }: Props) {
             <FormItem className="flex w-full flex-col gap-3">
               <FormLabel className="text-base-semibold text-light-2">Name</FormLabel>
               <FormControl>
-                <Input type="text" className="account-form_input no-focus" {...field} />
+                <Input
+                  type="text"
+                  className="account-form_input no-focus"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -155,9 +173,15 @@ export default function AccountProfile({ user, btnTitle }: Props) {
           name="username"
           render={({ field }) => (
             <FormItem className="flex w-full flex-col gap-3">
-              <FormLabel className="text-base-semibold text-light-2">Username</FormLabel>
+              <FormLabel className="text-base-semibold text-light-2">
+                Username
+              </FormLabel>
               <FormControl>
-                <Input type="text" className="account-form_input no-focus" {...field} />
+                <Input
+                  type="text"
+                  className="account-form_input no-focus"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -172,7 +196,11 @@ export default function AccountProfile({ user, btnTitle }: Props) {
             <FormItem className="flex w-full flex-col gap-3">
               <FormLabel className="text-base-semibold text-light-2">Bio</FormLabel>
               <FormControl>
-                <Textarea rows={10} className="account-form_input no-focus" {...field} />
+                <Textarea
+                  rows={10}
+                  className="account-form_input no-focus"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
