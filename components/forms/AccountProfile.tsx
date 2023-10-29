@@ -35,7 +35,7 @@ interface Props {
   btnTitle: string;
 }
 
-export default function AccountProfile({ user, btnTitle }: Props) {
+const AccountProfile = ({ user, btnTitle }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
   const { startUpload } = useUploadThing("media");
@@ -65,12 +65,12 @@ export default function AccountProfile({ user, btnTitle }: Props) {
     }
 
     await updateUser({
-      userId: user.id,
-      username: values.username,
       name: values.name,
+      path: pathname,
+      username: values.username,
+      userId: user.id,
       bio: values.bio,
       image: values.profile_photo,
-      path: pathname,
     });
 
     if (pathname === "/profile/edit") {
@@ -106,20 +106,19 @@ export default function AccountProfile({ user, btnTitle }: Props) {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col justify-start gap-10"
+        onSubmit={form.handleSubmit(onSubmit)}
       >
-        {/* Image */}
         <FormField
           control={form.control}
           name="profile_photo"
           render={({ field }) => (
             <FormItem className="flex items-center gap-4">
               <FormLabel className="account-form_image-label">
-                {field?.value ? (
+                {field.value ? (
                   <Image
-                    src={field?.value}
-                    alt="profile photo"
+                    src={field.value}
+                    alt="profile_icon"
                     width={96}
                     height={96}
                     priority
@@ -128,7 +127,7 @@ export default function AccountProfile({ user, btnTitle }: Props) {
                 ) : (
                   <Image
                     src="/assets/profile.svg"
-                    alt="profile photo"
+                    alt="profile_icon"
                     width={24}
                     height={24}
                     className="object-contain"
@@ -148,7 +147,6 @@ export default function AccountProfile({ user, btnTitle }: Props) {
           )}
         />
 
-        {/* Name */}
         <FormField
           control={form.control}
           name="name"
@@ -167,7 +165,6 @@ export default function AccountProfile({ user, btnTitle }: Props) {
           )}
         />
 
-        {/* Username */}
         <FormField
           control={form.control}
           name="username"
@@ -188,7 +185,6 @@ export default function AccountProfile({ user, btnTitle }: Props) {
           )}
         />
 
-        {/* Bio */}
         <FormField
           control={form.control}
           name="bio"
@@ -213,4 +209,6 @@ export default function AccountProfile({ user, btnTitle }: Props) {
       </form>
     </Form>
   );
-}
+};
+
+export default AccountProfile;
