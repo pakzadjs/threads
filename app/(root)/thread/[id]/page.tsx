@@ -1,8 +1,9 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
+import { fetchThreadById } from "@/lib/actions/thread.action";
 import { fetchUser } from "@/lib/actions/user.actions";
 import ThreadCard from "@/components/cards/ThreadCard";
-import { fetchThreadById } from "@/lib/actions/thread.action";
+import Comment from "@/components/forms/Comment";
 
 export default async function Page({ params }: { params: { id: string } }) {
   if (!params.id) return null;
@@ -27,6 +28,14 @@ export default async function Page({ params }: { params: { id: string } }) {
           community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
+        />
+      </div>
+
+      <div className='mt-7'>
+        <Comment
+          threadId={params.id}
+          currentUserImg={user.imageUrl}
+          currentUserId={JSON.stringify(userInfo._id)}
         />
       </div>
     </section>
