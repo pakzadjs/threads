@@ -32,4 +32,4 @@ Thank you for considering contributing to Threads!
 
 ## License:
 
-MIT © [PoudiGuitar](https://github.com/pakzadjs/poudiguitar)
+MIT © [Threads](https://github.com/pakzadjs/threads)
