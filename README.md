@@ -5,6 +5,9 @@
 
 Develop Threads, Next.js 13 app that skyrocketed to 100 million sign-ups in less than 5 days, and dethroned giants like Twitter, ChatGPT, and TikTok to become the fastest-growing app ever!
 
+![image](https://github.com/pakzadjs/threads/assets/96146741/68127169-f7a5-4254-a519-d3226093e012)
+
+
 ## Features:
 - Express Yourself: Share your thoughts, opinions, and experiences through tweets, engaging with a diverse community.
 
@@ -29,6 +32,7 @@ Threads clone is an open source project and we welcome contributions from the co
 - Submit a pull request with a clear explanation of your changes.
 
 Thank you for considering contributing to Threads!
+
 
 ## License:
 
