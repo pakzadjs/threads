@@ -7,7 +7,6 @@ Develop Threads, Next.js 13 app that skyrocketed to 100 million sign-ups in less
 
 ![image](https://github.com/pakzadjs/threads/assets/96146741/68127169-f7a5-4254-a519-d3226093e012)
 
-
 ## Features:
 - Express Yourself: Share your thoughts, opinions, and experiences through tweets, engaging with a diverse community.
 
@@ -33,7 +32,15 @@ Threads clone is an open source project and we welcome contributions from the co
 
 Thank you for considering contributing to Threads!
 
-
 ## License:
 
 MIT © [Threads](https://github.com/pakzadjs/threads)
+
+</br>
+</br>
+</br>
+
+<div align="center">
+  <img src="https://github.com/pakzadjs/threads/assets/96146741/43b120ef-2c57-4695-8219-b9c4741cb7a0" width="315">
+  <img src="https://github.com/pakzadjs/threads/assets/96146741/5e8a1456-68ee-406e-814b-05578a349cb2" width="600">
+</div>
